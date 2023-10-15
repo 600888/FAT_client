@@ -3,9 +3,9 @@ import QtQuick.Controls 2.2
 import ".."
 import "../.."
 Label {
-    font.pixelSize: CusConfig.fontPixel
-    color: CusConfig.textColor
-    height: CusConfig.fixedHeight
+    font.pixelSize: Config.fontSize_default
+    color: Config.textColor
+    height: Config.fixedHeight
     elide: Text.ElideRight
     verticalAlignment: Text.AlignVCenter
     horizontalAlignment: Text.AlignLeft

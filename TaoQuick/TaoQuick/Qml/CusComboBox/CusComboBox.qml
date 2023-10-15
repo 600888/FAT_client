@@ -1,5 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
+import Qt5Compat.GraphicalEffects
 import ".."
 import "../.."
 
@@ -48,14 +49,15 @@ ComboBox {
         width: height
         x: cusComboBox.width - width - cusComboBox.rightPadding
         y: (cusComboBox.height - height) / 2
-        CusColorOverlay {
+        ColorOverlay {
             anchors {
                 centerIn: parent
             }
             source: baseImage
             width: baseImage.width
             height: baseImage.height
-            imageColor: {
+            cached: true
+            color: {
                 if (!cusComboBox.enabled) {
                     return colorDisable
                 } else if (cusComboBox.pressed) {

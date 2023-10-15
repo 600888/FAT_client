@@ -28,8 +28,14 @@ ListView {
         visible: opacity > 0
         active: visible
         stepSize: cusTableView.width / cusTableView.contentWidth / 2
-        size: Math.max(cusTableView.width / cusTableView.contentWidth, minimumSize)
-        minimumSize: CusConfig.scrollBarMinLen / cusTableView.width
+        size: Math.max(cusTableView.width / cusTableView.contentWidth, CusConfig.scrollBarMinLen / cusTableView.width)
+        Component.onCompleted: {
+            if (scrollBarHasMinimumSize) {
+                minimumSize = Qt.binding(function(){
+                    return CusConfig.scrollBarMinLen / cusTableView.width
+                })
+            }
+        }
     }
     ScrollBar.vertical: CusScrollBar {
         id: vBar
@@ -38,8 +44,14 @@ ListView {
         visible: opacity > 0
         active: visible
         stepSize: cusTableView.height / cusTableView.contentHeight / 2
-        size: Math.max(cusTableView.height / (cusTableView.model.visibledCount * CusConfig.fixedHeight), minimumSize)
-        minimumSize: CusConfig.scrollBarMinLen / cusTableView.height
+        size: Math.max(cusTableView.height / (cusTableView.model.visibledCount * CusConfig.fixedHeight), CusConfig.scrollBarMinLen / cusTableView.height)
+        Component.onCompleted: {
+            if (scrollBarHasMinimumSize) {
+                minimumSize = Qt.binding(function(){
+                    return CusConfig.scrollBarMinLen / cusTableView.height
+                })
+            }
+        }
     }
     CusShortCutKeys {
         id: tableKeys
@@ -149,23 +161,23 @@ ListView {
         x: tableAreaX
         width: parent.width - x - CusConfig.scrollBarSize
         height: parent.height
-        onPressed: function(mouseX, mouseY){
+        onPressed: {
             cusTableView.forceActiveFocus()
             cusTableView.pressed(mouseX + tableAreaX, mouseY)
         }
-        onRightPressed: function(mouseX, mouseY){
+        onRightPressed: {
             cusTableView.rightPressed(mouseX + tableAreaX, mouseY)
         }
-        onReleased: function() {
+        onReleased: {
             cusTableView.released()
         }
-        onPositionChanged: function(mouseX, mouseY){
+        onPositionChanged: {
             cusTableView.positionChanged(mouseX + tableAreaX, mouseY)
         }
-        onDoubleClicked: function(mouseX, mouseY){
+        onDoubleClicked: {
             cusTableView.doubleClicked(mouseX + tableAreaX, mouseY)
         }
-        onWheelEvent: function (angle){
+        onWheelEvent: {
             //angle
             if (vBar.visible) {
                 if (angle > 0) {

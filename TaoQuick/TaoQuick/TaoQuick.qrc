@@ -4,7 +4,7 @@
         <file>Qml/CusConfig.qml</file>
         <file>Qml/Basic/BasicText.qml</file>
         <file>Qml/Basic/BasicTooltip.qml</file>
-        <file>Qml/Basic/CusColorOverlay.qml</file>
+        <file>Qml/Basic/CusCallLater.qml</file>
         <file>Qml/Basic/MoveArea.qml</file>
         <file>Qml/Basic/RoundRectangle.qml</file>
         <file>Qml/Basic/RoundRectangleShape.qml</file>
@@ -91,8 +91,6 @@
         <file>Qml/Misc/CusResizeBorder.qml</file>
         <file>Qml/Misc/CusShortCutKeys.qml</file>
         <file>Qml/Misc/CusTemplateDragBorder.qml</file>
-        <file>Qml/Basic/cusColorOverlay.frag.qsb</file>
-        <file>Qml/Basic/cusColorOverlay.frag</file>
         <file>Images/arrow-down.png</file>
         <file>Images/arrow-left.png</file>
         <file>Images/arrow-right.png</file>

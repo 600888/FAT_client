@@ -1,6 +1,6 @@
 import QtQuick 2.9
 import QtQuick.Controls 2.2
-
+import Qt5Compat.GraphicalEffects
 import ".."
 import "../.."
 
@@ -39,14 +39,15 @@ CheckBox {
         radius: CusConfig.controlBorderRadius
         border.width: 1
         border.color: cusCheckBox.pressed ? CusConfig.controlBorderColor_pressed : (cusCheckBox.hovered ? CusConfig.controlBorderColor_hovered : CusConfig.controlBorderColor)
-        CusColorOverlay {
+        ColorOverlay {
             id: indicatorImg
             source: baseImgCheck
             width: baseImgCheck.width
             height: baseImgCheck.height
             anchors.centerIn: parent
+            cached: true
             visible: cusCheckBox.checked
-            imageColor: {
+            color: {
                 if (!cusCheckBox.enabled) {
                     return colorDisable
                 } else if (cusCheckBox.pressed) {

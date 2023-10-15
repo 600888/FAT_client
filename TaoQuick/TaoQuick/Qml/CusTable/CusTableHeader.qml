@@ -124,7 +124,7 @@ Item {
                 property string ascImageUrl: (headerArea.containsMouse) ? ascUrl_Hovered : ascUrl
                 property string descImageUrl: (headerArea.containsMouse) ? descUrl_Hovered : descUrl
 
-                imgNormal: visible ? (dataObj.sortOrder === 0 ? ascImageUrl : descImageUrl) : ""
+                source: visible ? (dataObj.sortOrder === 0 ? ascImageUrl : descImageUrl) : ""
 
                 visible: dataObj && dataObj.sortRole === headerRoles[index]
                 color: headerArea.containsMouse ? CusConfig.imageColor_hovered : CusConfig.imageColor
